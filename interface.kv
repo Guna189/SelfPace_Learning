@@ -1,0 +1,113 @@
+<InterfaceLayout>:
+    input_query: input_query
+    BoxLayout:
+        orientation: "horizontal"
+        size: root.width, root.height
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.2, 1.0)
+            canvas.before:
+                Color:
+                    rgba: 1,1,1, 0.8  # Sky blue background
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+                Line:
+                    rectangle: self.x, self.y, self.width, self.height
+
+            ToggleButton:
+                id: doubt_solver_button
+                font_name: "Verdana"
+                text: "Doubt Solver"
+                size_hint_y: 0.1
+                group: "mode"
+                state: "down"
+
+            ToggleButton:
+                id: mock_interview_button
+                font_name: "Verdana"
+                text: "Mock Interview"
+                size_hint_y: 0.1
+                group: "mode"
+
+            ToggleButton:
+                id: quick_revision_button
+                font_name: "Verdana"
+                text: "Quick Revision"
+                size_hint_y: 0.1
+                group: "mode"
+
+            Button:
+                font_name: "Verdana"
+                text: "Quit"
+                background_color: 1, 0.647, 0, 1  # Orange background
+                size_hint_y: 0.1
+                on_press: root.exit()
+
+            Label:
+                text: ""
+                background_color: 0.529, 0.808, 0.922, 1  # Sky blue background
+
+            Button:
+                font_name: "Verdana"
+                text: "History"
+                size_hint_y: 0.1
+                background_color: 0.957, 0.643, 0.376, 1  # Light orange background
+                on_press: root.get_history()
+
+            Button:
+                font_name: "Verdana"
+                text: "Clear"
+                size_hint_y: 0.1
+                background_color: 0.773, 0.847, 0.808, 1  # Light green background
+                on_press: root.get_cleared()
+
+        BoxLayout:
+            padding: 10
+            size_hint: (0.8, 1.0)  # width=60%, height=100%
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1  # Yellow background
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+                Line:
+                    rectangle: self.x, self.y, self.width, self.height
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                ScrollView:
+                    size_hint: (1, 2)
+                    bar_width: 10  # Set the width of the scrollbar
+                    bar_color: 0, 0, 0, 1  # Set the color of the scrollbar
+                    effect_cls: "ScrollEffect"
+
+                    background_color: 1, 1, 1, 1  # Set the background color of the ScrollView to white
+                    Label:
+                        font_name: "Verdana"
+                        id: output_textbox
+                        text: "Welcome to the Self-Pace Learning Tool!\n\n        Explore a world of knowledge and personalized learning experiences. Uncover the power of advanced Natural Language Processing and the seamless Python Kivy interface designed to enhance your educational journey. \n\n        Engage in a transformative learning experience that goes beyond traditional methods. Our virtual assistant is here to empower your academic endeavors, providing personalized support for your inquiries. \n\n        Discover an innovative platform that not only answers your questions but also encourages a collaborative and approachable learning environment. \n\n        Embark on enriched learning journeys as AI and education converge to redefine the landscape of your educational experience. Type your queries below and let our AI guide you toward academic success!"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+                        font_size: 24
+                        color: (0, 0, 0, 1)
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: 0.15  # Set the height of the inner BoxLayout to 10% of the second BoxLayout
+
+                    TextInput:
+                        id: input_query
+                        multiline: True
+                        hint_text: "Type here..."
+
+                    Button:
+                        on_press: root.pressed()
+                        text: "Send"
+                        font_name: "Verdana"
+                        size_hint_x: 0.2  # Set the width of the Button to 20% of the inner BoxLayout
