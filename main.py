@@ -2,6 +2,7 @@ import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+from kivy.uix.scatter import Scatter
 from kivy.uix.textinput import TextInput
 from kivy.lang import Builder
 import sys
@@ -17,7 +18,9 @@ Builder.load_file("interface.kv")
 def get_response(prompt):
     response = palm.generate_text(
         prompt=prompt)
-    return str(response.result)
+    result = response.result
+    result = result.replace("**","")
+    return str(result)
 
 def mock_interview(topic):
     return "Interviewed on "+topic
@@ -26,6 +29,7 @@ def quick_revison(topic):
     return "Revision on topic: "+topic+"\n\n"+get_response("Write about "+topic+" in 15 points for revision.")
 
 class InterfaceLayout(BoxLayout):
+
     def pressed(self):
         query = self.ids.input_query.text
 
@@ -111,6 +115,18 @@ class InterfaceLayout(BoxLayout):
     def get_cleared(self):
         self.ids.output_textbox.text = "Welcome to the Self-Pace Learning Tool!\n\n        Explore a world of knowledge and personalized learning experiences. Uncover the power of advanced Natural Language Processing and the seamless Python Kivy interface designed to enhance your educational journey. \n\n        Engage in a transformative learning experience that goes beyond traditional methods. Our virtual assistant is here to empower your academic endeavors, providing personalized support for your inquiries. \n\n        Discover an innovative platform that not only answers your questions but also encourages a collaborative and approachable learning environment. \n\n        Embark on enriched learning journeys as AI and education converge to redefine the landscape of your educational experience. Type your queries below and let our AI guide you toward academic success!"
 
+    def zoom_in(self):
+        scroll = self.ids.img.parent
+        scroll.scroll_x = max(0, min(1, scroll.scroll_x + 0.1))
+        scroll.scroll_y = max(0, min(1, scroll.scroll_y + 0.1))
+        self.ids.img.width = self.parent.width * (1 / (1 - scroll.scroll_x))
+
+    def zoom_out(self):
+        scroll = self.ids.img.parent
+        scroll.scroll_x = max(0, min(1, scroll.scroll_x - 0.1))
+        scroll.scroll_y = max(0, min(1, scroll.scroll_y - 0.1))
+        self.ids.img.width = self.parent.width * (1 / (1 - scroll.scroll_x))
+
     def exit(self):
         sys.exit(0)
 
@@ -119,6 +135,7 @@ class MentorApp(App):
     def build(self):
         self.title = "Self-Pace Learning"
         return InterfaceLayout()
+
 
 
 if __name__ == '__main__':

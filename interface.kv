@@ -1,3 +1,9 @@
+<ZoomableImage@ScrollView>:
+    do_scroll_x: True
+    do_scroll_y: True
+    bar_width: 20
+    bar_color: 0, 0, 0, 1
+
 <InterfaceLayout>:
     input_query: input_query
     BoxLayout:
@@ -111,3 +117,36 @@
                         text: "Send"
                         font_name: "Verdana"
                         size_hint_x: 0.2  # Set the width of the Button to 20% of the inner BoxLayout
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: (1.0, 1.0)
+
+                # New BoxLayout for displaying images
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+                    Label:
+                        text: "Image Display"
+                        font_size: 18
+                        size_hint_y: 0.1
+
+                    Image:
+                        source: "hunting_image_2.jpg"  # Set a default image
+                        allow_stretch: True
+                        size_hint_y: 0.8
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: 0.1
+                        Button:
+                            text: "Previous Image"
+                            #on_press: root.show_previous_image()
+
+                        Button:
+                            text: "Get Images"
+                            #on_press: root.get_images()
+
+                        Button:
+                            text: "Next Image"
+                            #on_press: root.show_next_image()

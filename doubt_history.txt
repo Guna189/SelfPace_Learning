@@ -1,5 +1,68 @@
 
 
+==========2024-02-17 17:23:17==========
+
+Write a python program implementing bubble sort.
+```python
+def bubble_sort(nums):
+  """Bubble sort algorithm.
+
+  Args:
+    nums: List of numbers to be sorted.
+
+  Returns:
+    List of sorted numbers.
+  """
+
+  for i in range(len(nums) - 1):
+    for j in range(len(nums) - 1 - i):
+      if nums[j] > nums[j + 1]:
+        nums[j], nums[j + 1] = nums[j + 1], nums[j]
+
+  return nums
+
+
+if __name__ == "__main__":
+  nums = [5, 7, 3, 1, 2, 4]
+  print(bubble_sort(nums))
+```
+
+
+==========2024-02-16 23:00:59==========
+
+2011 icc cricket world cup summary
+
+None
+
+
+==========2024-02-16 23:00:01==========
+
+who is marcus?
+
+a basketball player
+
+
+==========2024-02-16 22:59:53==========
+
+who is marcus?
+
+an American rapper
+
+
+==========2024-02-16 22:59:48==========
+
+who is marcus?
+
+a baptist minister
+
+
+==========2024-02-16 22:59:45==========
+
+who is marcus?
+
+Marcus (disambiguation)
+
+
 ==========2024-02-15 06:41:41==========
 
 what is python
@@ -111,6 +174,18 @@ Doubt cleared on Rithik??
 
 Rithik??
 Doubt cleared on Rithik??
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

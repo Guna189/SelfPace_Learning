@@ -1,0 +1,61 @@
+<ZoomableImage@Scatter>:
+    do_rotation: False
+    do_translation: True
+    do_scale: True
+
+<InterfaceLayout>:
+    orientation: 'vertical'
+    size_hint: (1.0, 1.0)
+
+    # BoxLayout for displaying images with zooming
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        Label:
+            text: "Image Display"
+            font_size: 18
+            size_hint_y: 0.1
+
+        ScrollView:
+            size_hint: (1, 0.8)
+            bar_width: 10
+            bar_color: 0, 0, 0, 1
+
+            <ImageViewer>:
+                orientation: 'vertical'
+                size_hint: (1.0, 1.0)
+
+                ZoomableImage:
+                    Image:
+                        id: img
+                        source: 'hunting_image_4.jpg'
+                        allow_stretch: True
+                        size_hint: (None, None)
+                        size: self.parent.width, self.parent.height
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: 0.1
+
+                    Button:
+                        text: 'Zoom In'
+                        on_press: root.zoom_in()
+
+                    Button:
+                        text: 'Zoom Out'
+                        on_press: root.zoom_out()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            Button:
+                text: "Previous Image"
+                #on_press: root.show_previous_image()
+
+            Button:
+                text: "Get Images"
+                #on_press: root.get_images()
+
+            Button:
+                text: "Next Image"
+                #on_press: root.show_next_image()

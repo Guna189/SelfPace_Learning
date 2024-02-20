@@ -1,41 +1,54 @@
-from kivy.app import App
+from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
 from kivy.uix.image import Image
+from kivy.uix.scrollview import ScrollView
+from kivy.uix.button import Button
 
-class ImageChatbotApp(App):
-    def build(self):
-        # Main layout
-        layout = BoxLayout(orientation='vertical')
+Builder.load_string("""
+<ZoomableImage@ScrollView>:
+    do_scroll_x: True
+    do_scroll_y: True
+    bar_width: 20
+    bar_color: 0, 0, 0, 1
 
-        # Image display widget
-        self.image_widget = Image(source='', size_hint=(1, 0.8))
-        layout.add_widget(self.image_widget)
+<ImageViewer>:
+    orientation: 'vertical'
+    size_hint: (1.0, 1.0)
 
-        # Button to change the displayed image
-        button = Button(text='Show Next Image', size_hint=(1, 0.2))
-        button.bind(on_press=self.show_next_image)
-        layout.add_widget(button)
+    ZoomableImage:
+        Image:
+            id: img
+            source: 'hunting_image_4.jpg'
+            allow_stretch: True
+            size_hint: (None, None)
+            size: self.parent.width, self.parent.height
 
-        return layout
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 0.1
 
-    def show_next_image(self, instance):
-        # Change the image source here (replace this logic with your chatbot's image selection logic)
-        next_image_path = self.get_next_image_path()
+        Button:
+            text: 'Zoom In'
+            on_press: root.zoom_in()
 
-        # Update the image source in the Image widget
-        self.image_widget.source = next_image_path
+        Button:
+            text: 'Zoom Out'
+            on_press: root.zoom_out()
+""")
 
-    def get_next_image_path(self):
-        # Replace this logic with your chatbot's image selection logic
-        # For demonstration purposes, it rotates through three sample images
-        image_paths = ["hunting_image_2.jpg", "hunting_image_3.jpg", "hunting_image_4.jpg"]
+from kivy.base import runTouchApp
 
-        # Get the next image path in the sequence
-        current_index = image_paths.index(self.image_widget.source) if self.image_widget.source in image_paths else 0
-        next_index = (current_index + 1) % len(image_paths)
+class ImageViewer(BoxLayout):
+    def zoom_in(self):
+        scroll = self.ids.img.parent
+        scroll.scroll_x = max(0, min(1, scroll.scroll_x + 0.1))
+        scroll.scroll_y = max(0, min(1, scroll.scroll_y + 0.1))
+        self.ids.img.width = self.parent.width * (1 / (1 - scroll.scroll_x))
 
-        return image_paths[next_index]
+    def zoom_out(self):
+        scroll = self.ids.img.parent
+        scroll.scroll_x = max(0, min(1, scroll.scroll_x - 0.1))
+        scroll.scroll_y = max(0, min(1, scroll.scroll_y - 0.1))
+        self.ids.img.width = self.parent.width * (1 / (1 - scroll.scroll_x))
 
-if __name__ == '__main__':
-    ImageChatbotApp().run()
+runTouchApp(ImageViewer())
