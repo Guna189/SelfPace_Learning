@@ -12,7 +12,7 @@
 
         BoxLayout:
             orientation: 'vertical'
-            size_hint: (0.2, 1.0)
+            size_hint: (0.1, 1.0)
             canvas.before:
                 Color:
                     rgba: 1,1,1, 0.8  # Sky blue background
@@ -72,7 +72,7 @@
 
         BoxLayout:
             padding: 10
-            size_hint: (0.8, 1.0)  # width=60%, height=100%
+            size_hint: (0.5, 1.0)  # width=60%, height=100%
             canvas.before:
                 Color:
                     rgba: 1, 1, 1, 1  # Yellow background
@@ -120,7 +120,7 @@
 
             BoxLayout:
                 orientation: 'vertical'
-                size_hint: (1.0, 1.0)
+                size_hint: (0.6, 1.0)
 
                 # New BoxLayout for displaying images
                 BoxLayout:
@@ -132,7 +132,8 @@
                         size_hint_y: 0.1
 
                     Image:
-                        source: "hunting_image_2.jpg"  # Set a default image
+                        id: query_image
+                        source: "wallpaper.png"  # Set a default image
                         allow_stretch: True
                         size_hint_y: 0.8
 
@@ -141,12 +142,12 @@
                         size_hint_y: 0.1
                         Button:
                             text: "Previous Image"
-                            #on_press: root.show_previous_image()
+                            on_press: root.show_previous_image()
 
                         Button:
                             text: "Get Images"
-                            #on_press: root.get_images()
+                            on_press: root.get_query_images()
 
                         Button:
                             text: "Next Image"
-                            #on_press: root.show_next_image()
+                            on_press: root.show_next_image()
