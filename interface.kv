@@ -32,9 +32,9 @@
                 state: "down"
 
             ToggleButton:
-                id: mock_interview_button
+                id: mock_assessment_button
                 font_name: "Verdana"
-                text: "Mock Interview"
+                text: "Assesment"
                 size_hint_y: 0.1
                 group: "mode"
 
@@ -52,9 +52,14 @@
                 size_hint_y: 0.1
                 on_press: root.exit()
 
-            Label:
-                text: ""
-                background_color: 0.529, 0.808, 0.922, 1  # Sky blue background
+            TextInput:
+                id: assesmentbox
+                hint_text: "Use this box for Assessment"  # Add a hint for the input
+                font_name: "Verdana"
+                multiline: True  # Set to True if you want a multiline input
+                size_hint_y: 0.6
+
+
 
             Button:
                 font_name: "Verdana"
@@ -85,6 +90,16 @@
 
             BoxLayout:
                 orientation: 'vertical'
+
+                BoxLayout:
+
+                    orientation: 'horizontal'
+                    size_hint_y: 0.2
+                    Label:
+                        id: title_bar
+                        text: "Self-Pace Learning Tool"
+                        font_size: 36
+                        color: 0,0,0,1
 
                 ScrollView:
                     size_hint: (1, 2)

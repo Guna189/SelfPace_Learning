@@ -1,21 +1,97 @@
 
 
-==========2024-01-11 21:33:23==========
+==========2024-02-23 21:43:20==========
 
-Interviewed on Artificial Intelligence
+1. What is the full form of AI?
+(A) Artificial Intelligence
+(B) Artificial Idiot
+(C) Artificial Intelligences
+(D) Artificial Intellect
 
+Answer: (A)
 
-==========2024-01-10 23:14:40==========
+2. Who coined the term "artificial intelligence"?
+(A) John McCarthy
+(B) Alan Turing
+(C) Marvin Minsky
+(D) Herbert Simon
 
-Interviewed on python
+Answer: (A)
 
+3. What is the Turing test?
+(A) A test of a machine's ability to exhibit intelligent behavior equivalent to, or indistinguishable from, that of a human.
+(B) A test of a machine's ability to pass as human.
+(C) A test of a machine's ability to learn.
+(D) A test of a machine's ability to solve problems.
 
-==========2023-12-28 09:44:23==========
+Answer: (A)
 
-Interviewed on Rithik??
+4. What are the 3 main types of AI?
+(A) Narrow AI, General AI, and Super AI
+(B) Weak AI, Strong AI, and Super AI
+(C) Artificial Stupidity, Artificial Intelligence, and Artificial Superintelligence
+(D) Artificial Narrow Intelligence, Artificial General Intelligence, and Artificial Superintelligence
 
+Answer: (D)
 
+5. What is Narrow AI?
+(A) AI that is designed to perform a specific task or set of tasks.
+(B) AI that is designed to be as intelligent as a human.
+(C) AI that is designed to be smarter than a human.
+(D) AI that is designed to control the world.
 
+Answer: (A)
 
+6. What is General AI?
+(A) AI that is designed to perform a specific task or set of tasks.
+(B) AI that is designed to be as intelligent as a human.
+(C) AI that is designed to be smarter than a human.
+(D) AI that is designed to control the world.
+
+Answer: (B)
+
+7. What is Super AI?
+(A) AI that is designed to perform a specific task or set of tasks.
+(B) AI that is designed to be as intelligent as a human.
+(C) AI that is designed to be smarter than a human.
+(D) AI that is designed to control the world.
+
+Answer: (C)
+
+8. What are some of the benefits of AI?
+(A) AI can help us to solve complex problems.
+(B) AI can help us to automate tasks.
+(C) AI can help us to learn new things.
+(D) All of the above.
+
+Answer: (D)
+
+9. What are some of the risks of AI?
+(A) AI could be used to create autonomous weapons systems.
+(B) AI could be used to create surveillance systems that are too powerful.
+(C) AI could be used to create systems that are biased against certain groups of people.
+(D) All of the above.
+
+Answer: (D)
+
+10. What is the future of AI?
+(A) AI will continue to grow in power and sophistication.
+(B) AI will eventually become self-aware and pose a threat to humanity.
+(C) AI will eventually replace humans in all jobs.
+(D) It is impossible to say.
+
+Answer: (A)
+
+Answers:
+1. (A)
+2. (A)
+3. (A)
+4. (D)
+5. (A)
+6. (B)
+7. (C)
+8. (D)
+9. (D)
+10. (A)
 
 
